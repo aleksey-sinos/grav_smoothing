@@ -9,7 +9,7 @@ if STN.A_NOISE == 1
 else
     X_DIM = 5;
 end
-W_DIM = 3;
+W_DIM = 2;
 Z_DIM=1; 
 
 A=zeros(X_DIM,X_DIM);
