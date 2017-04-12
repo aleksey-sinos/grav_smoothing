@@ -36,7 +36,7 @@ X_DIM = size(A,1); Z_DIM = size(B,1); W_DIM = size(B,2);
 
 %Служебные параметры
 SERIES_LENGTH=11; % длина ряда при дискретизации модели динамики
-[F,G]=discm(A,B,DT,SERIES_LENGTH,0); %дискретная модель
+[F,G]=discm(A,B,STN_SIM.DT,SERIES_LENGTH,0); %дискретная модель
 
 X_f = zeros(X_DIM,SAMPLE_LENGTH+1); 
 X_f_pr = zeros(X_DIM,SAMPLE_LENGTH+1); 
@@ -92,8 +92,8 @@ xlabel('Км','fontsize',14)
 ylabel('Аномалия мГал','fontsize',14)
 
 figure(2); clf; grid on; hold on; %
-plot((1:SAMPLE_LENGTH)/10000*STN_EST.VEL,RMSE_s*mGal,'k','LineWidth',1.5);
-plot((1:SAMPLE_LENGTH)/10000*STN_EST.VEL,RMSE_f*mGal,'r--','LineWidth',1.5);
+plot((1:SAMPLE_LENGTH)/10000*STN_EST.VEL,MTR2mGAL(RMSE_s),'k','LineWidth',1.5);
+plot((1:SAMPLE_LENGTH)/10000*STN_EST.VEL,MTR2mGAL(RMSE_f),'r--','LineWidth',1.5);
 legend('СКО сглаживания','СКО фильтрации','Location','NorthEast')
 xlabel('Км','fontsize',14)
 ylabel('мГал','fontsize',14)
